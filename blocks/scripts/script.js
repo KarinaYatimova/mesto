@@ -6,11 +6,11 @@ popupBtnOpen.addEventListener('click', openPopup);
 popupBtnClose.addEventListener('click', closePopup);
 
 function openPopup() {
-  popupContainer.classList.add('popup__opened');
+  popupContainer.classList.add('popup_opened');
 }
 
 function closePopup() {
-  popupContainer.classList.remove('popup__opened');
+  popupContainer.classList.remove('popup_opened');
 }
 
 let formElement = document.querySelector('.popup__container');
@@ -24,7 +24,7 @@ function handleFormSubmit (evt) {
     evt.preventDefault();
     profileName.textContent = nameInput.value;
     profileJob.textContent = jobInput.value;
-    popupContainer.classList.remove('popup__opened')
+    popupContainer.classList.remove('popup_opened')
 }
 
 formElement.addEventListener('submit', handleFormSubmit);
