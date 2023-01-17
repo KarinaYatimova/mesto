@@ -1,0 +1,8 @@
+.form__button-save {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 358px;
+  min-height: 50px;
+  background: #000000;
+  border-radius: 2px;
+}

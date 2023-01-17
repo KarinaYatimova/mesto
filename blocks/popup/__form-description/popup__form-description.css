@@ -1,0 +1,25 @@
+.popup__form-description {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 358px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.21;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #000000;
+  margin-bottom: 30px;
+  padding-bottom: 9px;
+}
+
+.popup__form-description:last-of-type {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 767px) {
+  .popup__form-description {
+    max-width: 238px;
+    padding-bottom: 8px;
+  }
+}

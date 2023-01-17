@@ -1,0 +1,8 @@
+.form {
+
+  max-width: 430px;
+  min-height: 330px;
+  margin: 0 auto;
+  background: #FFFFFF;
+  border-radius: 10px;
+}

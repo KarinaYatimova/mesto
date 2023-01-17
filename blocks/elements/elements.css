@@ -1,0 +1,20 @@
+.elements {
+  padding-top: 50px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 880px;
+}
+
+@media screen and (max-width: 1023px) {
+  .elements  {
+    max-width: 590px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .elements {
+    padding-top: 36px;
+    max-width: 282px;
+  }
+}
+
