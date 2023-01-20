@@ -11,60 +11,60 @@
 <body class="body">
   <div class="page">
     <header class="header">
-      <div class="header__logo"></div>
+      <img class="header__logo" src="./images/header-logo.svg" alt="Логотип">
     </header>
     <main class="content">
       <section class="profile">
         <img src="./images/avatar.jpg" alt="Аватарка" class="profile__avatar">
         <div class="profile__info">
           <h1 class="profile__title">Жак-Ив Кусто</h1>
-          <button class="profile__edit-button"></button>
-          <h2 class="profile__subtitle">Исследователь океана</h2>
+          <button class="profile__edit-button" type="button" aria-label="Редактировать"></button>
+          <p class="profile__subtitle">Исследователь океана</p>
         </div>
-        <button class="profile__add-button" type="button"></button>
+        <button class="profile__add-button" type="button" aria-label="Добавить"></button>
       </section>
       <section class="elements">
         <ul class="element">
-          <li class="element__item">
+          <li class="element__item item">
             <img src="./images/karachayevsk.jpg" alt="Заброшенный храм" class="element__image">
             <div class="element__info">
               <h3 class="element__title">Карачаевск</h3>
-              <button class="element__like-button"></button>
+              <button class="element__like-button" type="button" aria-label="Лайк"></button>
             </div>
           </li>
-          <li class="element__item">
+          <li class="element__item item">
             <img src="./images/elbrus.png" alt="Закат и горы" class="element__image">
             <div class="element__info">
               <h3 class="element__title">Гора Эльбрус</h3>
-              <button class="element__like-button"></button>
+              <button class="element__like-button" type="button" aria-label="Лайк"></button>
             </div>
           </li>
-          <li class="element__item">
+          <li class="element__item item">
             <img src="./images/dombay.png" alt="Лес и горы" class="element__image">
             <div class="element__info">
               <h3 class="element__title">Домбай</h3>
-              <button class="element__like-button"></button>
+              <button class="element__like-button" type="button" aria-label="Лайк"></button>
             </div>
           </li>
-          <li class="element__item">
+          <li class="element__item item">
             <img src="./images/rosa-hutor.jpg" alt="Снежные горы" class="element__image">
             <div class="element__info">
               <h3 class="element__title">Роза Хутор</h3>
-              <button class="element__like-button"></button>
+              <button class="element__like-button" type="button" aria-label="Лайк"></button>
             </div>
           </li>
-          <li class="element__item">
+          <li class="element__item item">
             <img src="./images/arkhyz.jpg" alt="Лес и горы" class="element__image">
             <div class="element__info">
               <h3 class="element__title">Архыз</h3>
-              <button class="element__like-button"></button>
+              <button class="element__like-button" type="button" aria-label="Лайк"></button>
             </div>
           </li>
-          <li class="element__item">
+          <li class="element__item item">
             <img src="./images/kislovodsk.png" alt="Заброшенный храм" class="element__image">
             <div class="element__info">
               <h3 class="element__title">Кисловодск</h3>
-              <button class="element__like-button"></button>
+              <button class="element__like-button" type="button" aria-label="Лайк"></button>
             </div>
           </li>
         </ul>
@@ -74,17 +74,19 @@
       <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
     </footer>
   </div>
-  <div class="popup">
-    <form class="popup__container">
-      <button type="button" class="popup__close"></button>
-      <h3 class="popup__title">Редактировать профиль</h3>
-      <input type="text" name="name" value="Жак-Ив Кусто" placeholder="Имя" class="popup__form-description" required>
-      <input type="text" name="job" value="Исследователь океана" placeholder="О себе" class="popup__form-description"
-        required>
-      <button type="submit" class="popup__save">Сохранить</button>
-    </form>
-  </div>
-  <script src="./blocks/scripts/script.js"></script>
+  <section class="popup">
+    <div class="popup__container">
+      <button type="button" class="popup__close" aria-label="Закрыть"></button>
+      <form action="" method="post" name="infoForm" class="popup__form">
+        <h3 class="popup__title">Редактировать профиль</h3>
+        <input type="text" name="name" id="name" value="Жак-Ив Кусто" placeholder="Имя" class="popup__form-description"
+          required>
+        <input type="text" name="job" id="job" value="Исследователь океана" placeholder="О себе" class="popup__form-description" required>
+        <button type="submit" class="popup__save" aria-label="Сохранить">Сохранить</button>
+      </form>
+    </div>
+  </section>
+  <script src="./scripts/script.js"></script>
 </body>
 
 </html>
