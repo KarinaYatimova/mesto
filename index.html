@@ -25,48 +25,7 @@
       </section>
       <section class="elements">
         <ul class="element">
-          <li class="element__item item">
-            <img src="./images/karachayevsk.jpg" alt="Заброшенный храм" class="element__image">
-            <div class="element__info">
-              <h3 class="element__title">Карачаевск</h3>
-              <button class="element__like-button" type="button" aria-label="Лайк"></button>
-            </div>
-          </li>
-          <li class="element__item item">
-            <img src="./images/elbrus.png" alt="Закат и горы" class="element__image">
-            <div class="element__info">
-              <h3 class="element__title">Гора Эльбрус</h3>
-              <button class="element__like-button" type="button" aria-label="Лайк"></button>
-            </div>
-          </li>
-          <li class="element__item item">
-            <img src="./images/dombay.png" alt="Лес и горы" class="element__image">
-            <div class="element__info">
-              <h3 class="element__title">Домбай</h3>
-              <button class="element__like-button" type="button" aria-label="Лайк"></button>
-            </div>
-          </li>
-          <li class="element__item item">
-            <img src="./images/rosa-hutor.jpg" alt="Снежные горы" class="element__image">
-            <div class="element__info">
-              <h3 class="element__title">Роза Хутор</h3>
-              <button class="element__like-button" type="button" aria-label="Лайк"></button>
-            </div>
-          </li>
-          <li class="element__item item">
-            <img src="./images/arkhyz.jpg" alt="Лес и горы" class="element__image">
-            <div class="element__info">
-              <h3 class="element__title">Архыз</h3>
-              <button class="element__like-button" type="button" aria-label="Лайк"></button>
-            </div>
-          </li>
-          <li class="element__item item">
-            <img src="./images/kislovodsk.png" alt="Заброшенный храм" class="element__image">
-            <div class="element__info">
-              <h3 class="element__title">Кисловодск</h3>
-              <button class="element__like-button" type="button" aria-label="Лайк"></button>
-            </div>
-          </li>
+
         </ul>
       </section>
     </main>
@@ -74,7 +33,7 @@
       <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
     </footer>
   </div>
-  <section class="popup">
+  <section class="popup popup_edit-profile">
     <div class="popup__container">
       <button type="button" class="popup__close" aria-label="Закрыть"></button>
       <form action="#" method="post" name="infoForm" class="popup__form">
@@ -86,6 +45,40 @@
       </form>
     </div>
   </section>
+
+  <section class="popup popup_add-card">
+    <div class="popup__container">
+      <button type="button" class="popup__close popup__close-card" aria-label="Закрыть"></button>
+      <form action="#" method="post" name="infoForm" class="popup__form">
+        <h3 class="popup__title">Новое место</h3>
+        <input type="text" name="placename" id="placename" placeholder="Название" class="popup__form-description" required>
+        <input type="text" name="link" id="link" placeholder="Ссылка на картинку" class="popup__form-description" required>
+        <button type="submit" class="popup__save add_card-button" aria-label="Создать">Создать</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="popup popup_watch-image">
+    <div class="popup__content">
+      <button type="button" class="popup__close popup__close-image" aria-label="Закрыть"></button>
+        <figure class="popup__figure">
+          <img class="popup__image" src="" alt="Место">
+          <figcaption class="popup__image-placename"></figcaption>
+        </figure>
+    </div>
+  </section>
+
+  <template id="card-template">
+    <li class="element__item item">
+      <button class="element__remove-button" type="reset" aria-label="Удалить"></button>
+      <img src=" " alt="Место" class="element__image">
+      <div class="element__info">
+        <h3 class="element__title"></h3>
+        <button class="element__like-button" type="button" aria-label="Лайк"></button>
+      </div>
+    </li>
+  </template>
+
   <script src="./scripts/script.js"></script>
 </body>
 
