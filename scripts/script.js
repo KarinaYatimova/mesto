@@ -27,9 +27,9 @@ const initialCards = [
 
 const template = document.querySelector('#card-template').content.querySelector('.element__item');
 const cardContainer = document.querySelector('.element');
-const submitButton = document.querySelector('.add_card-button');
+const submitButton = document.querySelector('.popup__save-buttoncard');
 
-const popupWatchImage = document.querySelector('.popup_watch-image');
+const popupWatchImage = document.querySelector('.popup_watch_image');
 const popupImage = document.querySelector('.popup__image');
 const popupPlacename = document.querySelector('.popup__image-placename');
 const popupImageTitle = document.querySelector('.element__title');
@@ -38,11 +38,11 @@ const popupImageBtnClose = document.querySelector('.popup__close-image');
 const popup = document.querySelector('.popup');
 
 const popupBtnOpen = document.querySelector('.profile__edit-button');
-const popupContainer = document.querySelector('.popup_edit-profile');
+const popupContainer = document.querySelector('.popup_edit_profile');
 const popupBtnClose = document.querySelector('.popup__close');
 
 const popupAddBtnOpen = document.querySelector('.profile__add-button');
-const popupAddCard = document.querySelector('.popup_add-card');
+const popupAddCard = document.querySelector('.popup_add_card');
 const popupAddBtnClose = document.querySelector('.popup__close-card');
 
 const formElement = document.querySelector('.popup__form');
