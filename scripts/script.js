@@ -27,7 +27,7 @@ const initialCards = [
 
 const template = document.querySelector('#card-template').content.querySelector('.element__item');
 const cardContainer = document.querySelector('.element');
-const submitButton = document.querySelector('.popup__save-buttoncard');
+const submitButton = document.querySelector('.popup__save-button');
 
 const popupWatchImage = document.querySelector('.popup_watch_image');
 const popupImage = document.querySelector('.popup__image');
