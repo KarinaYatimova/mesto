@@ -1,4 +1,4 @@
-.popup__form-description {
+.popup__input {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -9,16 +9,15 @@
   border: none;
   outline: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  margin-bottom: 30px;
   padding-bottom: 9px;
 }
 
-.popup__form-description:last-of-type {
+.popup__input:last-of-type {
   margin-bottom: 0;
 }
 
 @media screen and (max-width: 767px) {
-  .popup__form-description {
+  .popup__input {
     max-width: 238px;
     padding-bottom: 8px;
   }

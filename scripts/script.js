@@ -17,7 +17,7 @@ const popupAddCard = document.querySelector('.popup_add_card');
 const popupAddBtnClose = document.querySelector('.popup__close-card');
 
 const profileForm = document.querySelector('.popup__form');
-// Находим поля формы в DOM
+
 const nameInput = document.querySelector('input[name="name"]');
 const jobInput = document.querySelector('input[name="job"]');
 const profileName = document.querySelector('.profile__title');
@@ -27,21 +27,6 @@ const placeInput = document.querySelector('input[name="placename"]');
 const linkInput = document.querySelector('input[name="link"]');
 
 renderCards(initialCards);
-
-cardFormSubmitButton.addEventListener('click', (evt) => {
-  evt.preventDefault();
-
-  const place = placeInput.value;
-  const link = linkInput.value;
-  const card = createCard({name: place, link: link});
-
-  cardsContainer.prepend(card);
-
-  closePopup(popupAddCard);
-
-  placeInput.value = '';
-  linkInput.value = '';
-});
 
 function renderCards(initialCards) {
   const cards = initialCards.map((cardData) => {
@@ -80,15 +65,6 @@ function fillProfileFormInputs() {
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
 }
-
-function openPopup(popup) {
-  popup.classList.add('popup_opened');
-}
-
-function closePopup(popup) {
-  popup.classList.remove('popup_opened');
-}
-
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет
 function handleProfileFormSubmit (evt) {
@@ -101,6 +77,47 @@ function handleProfileFormSubmit (evt) {
     closePopup(profilePopup);
 }
 
+function closeByEscape(evt) {
+  if (evt.key === 'Escape') {
+    const activePopup = document.querySelector('.popup_opened')
+    closePopup(activePopup)
+  }
+}
+
+function closeByOverlay(evt) {
+  if (evt.target === evt.currentTarget) {
+    closePopup(evt.currentTarget)
+  }
+}
+
+function openPopup(popup) {
+  popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closeByEscape);
+  popup.addEventListener('mousedown', closeByOverlay);
+
+}
+
+function closePopup(popup) {
+  popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closeByEscape);
+  popup.addEventListener('mousedown', closeByOverlay);
+}
+
+cardFormSubmitButton.addEventListener('click', (evt) => {
+  evt.preventDefault();
+
+  const place = placeInput.value;
+  const link = linkInput.value;
+  const card = createCard({name: place, link: link});
+
+  cardsContainer.prepend(card);
+
+  closePopup(popupAddCard);
+
+  placeInput.value = '';
+  linkInput.value = '';
+});
+
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
 profileForm.addEventListener('submit', handleProfileFormSubmit);
@@ -112,6 +129,8 @@ popupEditBtnOpen.addEventListener('click', function() {
 
 popupAddBtnOpen.addEventListener('click', function () {
   openPopup(popupAddCard);
+  cardFormSubmitButton.setAttribute('disabled', 'disabled');
+  cardFormSubmitButton.classList.add('popup__save_inactive');
 });
 
 popupEditBtnClose.addEventListener('click', function () {
@@ -125,3 +144,6 @@ popupAddBtnClose.addEventListener('click', function () {
 popupImageBtnClose.addEventListener('click', function () {
   closePopup(popupWatchImage);
 });
+
+
+

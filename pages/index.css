@@ -1,7 +1,7 @@
 @import url(../vendor/normalize.css);
 @import url(../vendor/fonts/fonts.css);
 
-@import url(../cards/cards.js);
+@import url(../scripts/cards.js);
 @import url(../scripts/script.js);
 
 @import url(../blocks/body/body.css);
@@ -42,10 +42,13 @@
 @import url(../blocks/popup/__form/popup__form.css);
 @import url(../blocks/popup/__close/popup__close.css);
 @import url(../blocks/popup/__title/popup__title.css);
-@import url(../blocks/popup/__form-description/popup__form-description.css);
 @import url(../blocks/popup/__save/popup__save.css);
 @import url(../blocks/popup/__content/popup__content.css);
 @import url(../blocks/popup/_watch/popup_watch_image.css);
 @import url(../blocks/popup/__image-placename/popup__image-placename.css);
 @import url(../blocks/popup/__figure/popup__figure.css);
 @import url(../blocks/popup/__image/popup__image.css);
+@import url(../blocks/popup/__save/_inactive/popup__save_inactive.css);
+@import url(../blocks/popup/__input-error/popup__input-error.css);
+@import url(../blocks/popup/__input/popup__input.css);
+@import url(../blocks/popup/__input/_type_error/popup__input_type_error.css);
