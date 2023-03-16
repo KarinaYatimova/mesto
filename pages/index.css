@@ -1,9 +1,6 @@
 @import url(../vendor/normalize.css);
 @import url(../vendor/fonts/fonts.css);
 
-@import url(../scripts/cards.js);
-@import url(../scripts/script.js);
-
 @import url(../blocks/body/body.css);
 
 @import url(../blocks/page/page.css);
