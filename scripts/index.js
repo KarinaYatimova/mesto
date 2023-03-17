@@ -122,7 +122,7 @@ cardFormSubmitButton.addEventListener('click', (evt) => {
   closePopup(popupAddCard);
 
   cardForm.reset()
-  createCardValidator._disableSubmitButton();
+  createCardValidator.disableSubmitButton();
 });
 
 closeButtons.forEach((button) => {

@@ -34,19 +34,19 @@ export default class Card {
     this._element.querySelector('.element__image').addEventListener('click', () => {
       this._openCardPopup();
     })
-    this._handleLikeClick();
-    this._handleRemoveClick();
-  }
-  
-  _handleLikeClick() {
-    this._element.querySelector('.element__like-button').addEventListener('click', function(evt) {
-      evt.target.classList.toggle('element__like-button_active');
+
+    this._element.querySelector('.element__like-button').addEventListener('click', this._handleLikeClick)
+
+    this._element.querySelector('.element__remove-button').addEventListener('click', () => {
+      this._handleRemoveClick()
     })
   }
 
+  _handleLikeClick(evt) {
+    evt.target.classList.toggle('element__like-button_active');
+  }
+
   _handleRemoveClick() {
-    this._element.querySelector('.element__remove-button').addEventListener('click', () => {
-      this._element.remove();
-    })
+    this._element.remove();
   }
 }
