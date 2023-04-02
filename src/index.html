@@ -4,18 +4,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="pages/index.css">
   <title>Mesto</title>
 </head>
 
 <body class="body">
   <div class="page">
     <header class="header">
-      <img class="header__logo" src="./images/header-logo.svg" alt="Логотип">
+      <img class="header__logo" src="<%=require('./images/header-logo.svg')%>" alt="Логотип">
     </header>
     <main class="content">
       <section class="profile">
-        <img src="./images/avatar.jpg" alt="Аватарка" class="profile__avatar">
+        <img src="<%=require('./images/avatar.jpg')%>" alt="Аватарка" class="profile__avatar">
         <div class="profile__info">
           <h1 class="profile__title">Жак-Ив Кусто</h1>
           <button class="profile__edit-button" type="button" aria-label="Редактировать"></button>
@@ -38,9 +37,9 @@
       <button type="button" class="popup__close" aria-label="Закрыть"></button>
       <form action="#" method="post" name="profile-form" class="popup__form" novalidate>
         <h3 class="popup__title">Редактировать профиль</h3>
-        <input type="text" name="name" id="name-input" value="Жак-Ив Кусто" placeholder="Имя" class="popup__input" minlength="2" maxlength="40" required>
+        <input type="text" name="name" id="name-input" value="Жак-Ив Кусто" placeholder="Имя" class="popup__input popup__input_profilename" minlength="2" maxlength="40" required>
         <span class="popup__input-error name-input-error"></span>
-        <input type="text" name="job" id="job-input" value="Исследователь океана" placeholder="О себе" class="popup__input" minlength="2" maxlength="200" required>
+        <input type="text" name="job" id="job-input" value="Исследователь океана" placeholder="О себе" class="popup__input popup__input_profilejob" minlength="2" maxlength="200" required>
         <span class="popup__input-error job-input-error"></span>
         <button type="submit" class="popup__save popup__save_inactive" aria-label="Сохранить" disabled="disabled">Сохранить</button>
       </form>
@@ -52,9 +51,9 @@
       <button type="button" class="popup__close popup__close-card" aria-label="Закрыть"></button>
       <form action="#" method="post" name="card-form" class="popup__form" novalidate>
         <h3 class="popup__title">Новое место</h3>
-        <input type="text" name="placename" id="placename-input" placeholder="Название" class="popup__input" minlength="2" maxlength="30" required>
+        <input type="text" name="placename" id="placename-input" placeholder="Название" class="popup__input popup__input_cardname" minlength="2" maxlength="30" required>
         <span class="popup__input-error placename-input-error"></span>
-        <input type="url" name="link" id="link-input" placeholder="Ссылка на картинку" class="popup__input" required>
+        <input type="url" name="link" id="link-input" placeholder="Ссылка на картинку" class="popup__input popup__input_cardlink" required>
         <span class="popup__input-error link-input-error"></span>
         <button type="submit" class="popup__save popup__save_inactive popup__save-button" aria-label="Создать" disabled="disabled">Создать</button>
       </form>
@@ -81,11 +80,6 @@
       </div>
     </li>
   </template>
-
-  <script type="module" src="./scripts/cards.js"></script>
-  <script type="module" src="./scripts/index.js"></script>
-  <script type="module" src="./scripts/Card.js"></script>
-  <script type="module" src="./scripts/FormValidator.js"></script>
 </body>
 
 </html>
