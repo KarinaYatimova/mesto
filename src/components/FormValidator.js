@@ -29,9 +29,17 @@ export default class FormValidator {
   }
 
   _hasInvalidInput = (inputList) => {
-    return inputList.some((inputElement) => {
+    return this._inputList.some((inputElement) => {
       return !inputElement.validity.valid;
     })
+  }
+
+  resetValidation() {
+    this._toggleButtonState(); //управляем кнопкой
+
+    this._inputList.forEach((inputElement) => {
+      this._hideInputError(inputElement) //очищаем ошибки
+    });
   }
 
   disableSubmitButton = () => {

@@ -25,14 +25,16 @@ function handleCardClick(name, link) {
 };
 
 //создание карточки
+
 const createCard = (cardData) => {
   const card = new Card(cardData, '.card-template', handleCardClick);
-
   const cardElement = card.generateCard();
+
   return cardElement;
 };
 
 //отвечает за отрисовку элементов на странице
+
 const cardsList = new Section({
   items: initialCards,
   renderer: (item) => {
@@ -40,6 +42,7 @@ const cardsList = new Section({
     cardsList.addItem(cards);
   },
 },
+
 cardsContainer);
 
 cardsList.renderItems();
@@ -83,13 +86,14 @@ function handleProfileFormSubmit(formData) {
 }
 
 popupEditBtnOpen.addEventListener('click', function() {
-  const userValues = userInfoPopup.getUserInfo()
-  nameInput.value = userValues.name;
-  jobInput.value = userValues.job;
+  const data = userInfoPopup.getUserInfo()
+  editProfilePopup.setInputValues(data)
   editProfilePopup.open();
+  editProfileValidator.resetValidation();
 });
 
 popupAddBtnOpen.addEventListener('click', function () {
   newCardPopup.open();
+  createCardValidator.resetValidation();
 });
 
