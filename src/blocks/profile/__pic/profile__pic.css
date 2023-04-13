@@ -1,9 +1,9 @@
-.profile__info_avatar {
+.profile__pic {
   display: flex;
   position: relative;
 }
 
-.profile__info_avatar::before{
+.profile__pic::before{
   content: "";
   position: absolute;
   width: 100%;
