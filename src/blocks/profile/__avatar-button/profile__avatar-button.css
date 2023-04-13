@@ -1,0 +1,25 @@
+.profile__avatar-button {
+  cursor: pointer;
+  padding: 0;
+  background: none;
+  border: 0;
+  position: absolute;
+  width: 100%;
+  max-width: 120px;
+  height: 100%;
+}
+
+.profile__avatar-button:hover {
+  background-image: url(../../../images/edit_avatar.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  background-size: 26px 26px;
+}
+
+@media screen and (max-width: 767px) {
+  .profile__avatar-button:hover {
+    background-size: 18px 18px;
+  }
+}
+
