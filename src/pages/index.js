@@ -7,7 +7,7 @@ import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithConfirmation from '../components/PopupWithConfirmation';
 import UserInfo from '../components/UserInfo.js';
 import Api from '../components/Api.js';
-import {cardsContainer, profilePopup, popupAddBtnOpen, popupEditBtnOpen,  popupAddCard, profileName, profileJob, profileAvatar, config, popupAvatarEditBtnOpen, profilePopupAvatar} from '../utils/constants.js';
+import {cardsContainer, popupAddBtnOpen, popupProfileEditBtnOpen, profileName, profileJob, profileAvatar, config, popupAvatarEditBtnOpen} from '../utils/constants.js';
 
 const api = new Api({
   baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-63',
@@ -19,17 +19,23 @@ const api = new Api({
 
 let userId = null;
 
-//валидация профиля
-const editProfileValidator = new FormValidator(config, profilePopup);
-editProfileValidator.enableValidation();
+const formValidators = {}
 
-//валидация аватарки профиля
-const editAvatarValidator = new FormValidator(config, profilePopupAvatar);
-editAvatarValidator.enableValidation();
+// Включение валидации
+const enableValidation = (config) => {
+  const formList = Array.from(document.querySelectorAll(config.formSelector))
+  formList.forEach((formElement) => {
+    const validator = new FormValidator(config, formElement)
+// получаем данные из атрибута `name` у формы
+    const formName = formElement.getAttribute('name')
 
-//валидация создания карточки
-const createCardValidator = new FormValidator(config, popupAddCard);
-createCardValidator.enableValidation();
+   // вот тут в объект записываем под именем формы
+    formValidators[formName] = validator;
+    validator.enableValidation();
+  });
+};
+
+enableValidation(config);
 
 //отвечает за просмотр изображения
 const imagePopup = new PopupWithImage('.popup_watch_image');
@@ -44,7 +50,6 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
   .then(([userData, cards]) => {
     userId  = userData._id;
     userInfoPopup.setUserInfo(userData);
-    userInfoPopup.setUserAvatar(userData);
     cardsList.renderItems(cards);
   })
   .catch((err) => {
@@ -108,10 +113,8 @@ cardsContainer);
 
 //добавление карточки
 const newCardPopup = new PopupWithForm({
-  popupSelector: '.popup_add_card',
-  handleFormSubmit : (formData) => {
-    handleCardFormSubmit(formData);
-  }
+  popup: '.popup_add_card',
+  handleFormSubmit: handleCardFormSubmit,
 });
 newCardPopup.setEventListeners();
 
@@ -141,10 +144,8 @@ const userInfoPopup = new UserInfo({
 
 //редактирование профиля
 const editProfilePopup = new PopupWithForm({
-  popupSelector: '.popup_edit_profile',
-  handleFormSubmit: (formValues) => {
-    handleProfileFormSubmit(formValues);
-  }
+  popup: '.popup_edit_profile',
+  handleFormSubmit: handleProfileFormSubmit,
 });
 editProfilePopup.setEventListeners();
 
@@ -167,10 +168,8 @@ function handleProfileFormSubmit(formData) {
 
 //редактирование аватара профиля
 const editAvatarPopup = new PopupWithForm({
-  popupSelector: '.popup_edit_avatar',
-  handleFormSubmit: (formData) => {
-    handleAvatarFormSubmit(formData);
-  }
+  popup: '.popup_edit_avatar',
+  handleFormSubmit: handleAvatarFormSubmit,
 });
 editAvatarPopup.setEventListeners();
 
@@ -180,7 +179,7 @@ function handleAvatarFormSubmit(formData) {
   api
   .editUserAvatar(formData)
   .then((res) => {
-    userInfoPopup.setUserAvatar(res);
+    userInfoPopup.setUserInfo(res);
     editAvatarPopup.close();
   })
   .catch((err) => {
@@ -191,21 +190,21 @@ function handleAvatarFormSubmit(formData) {
   })
 }
 
-popupEditBtnOpen.addEventListener('click', function() {
+popupProfileEditBtnOpen.addEventListener('click', function() {
   const data = userInfoPopup.getUserInfo()
   editProfilePopup.setInputValues(data)
   editProfilePopup.open();
-  editProfileValidator.resetValidation();
+  formValidators['profile-form'].resetValidation()
 });
 
 popupAddBtnOpen.addEventListener('click', function() {
   newCardPopup.open();
-  createCardValidator.resetValidation();
+  formValidators['card-form'].resetValidation()
 });
 
 popupAvatarEditBtnOpen.addEventListener('click', function() {
   editAvatarPopup.open();
-  editAvatarValidator.resetValidation();
+  formValidators['avatar-form'].resetValidation()
 })
 
 
